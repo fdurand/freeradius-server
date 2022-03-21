@@ -3,4 +3,4 @@ rlm_raw.diff
 collectd.diff
 mod_cache.diff
 rest_attr_size.diff
-fix.dictionary.patch
+fix.dictionary.diff
