@@ -1,4 +1,4 @@
-#import "log.h"
+#include "log.h"
 
 int goradlog(int lvl,char const *fmt) {
   int ret = radlog(lvl,fmt);
