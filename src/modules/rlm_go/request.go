@@ -6,7 +6,7 @@ package main
 
 void go_create_value_pair(RADIUS_PACKET *packet,const char *attrName, const char *attrValue) {
   // TODO we probably need to make the operator available in the Go side
-  fr_pair_make(packet, packet->vps, attrName, attrValue, T_OP_SET);
+  fr_pair_make(packet, &packet->vps, attrName, attrValue, T_OP_SET);
 }
 */
 import "C"
