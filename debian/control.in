@@ -122,6 +122,12 @@ Description: DHCP module for FreeRADIUS server
  The FreeRADIUS server can act as a DHCP server, and this module
  is necessary for that.
 
+Package: freeradius-go
+Architecture: any
+Depends: freeradius (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, ${dist:Depends}
+Description: GOLANG module for FreeRADIUS server
+ The FreeRADIUS server can use golang as module.
+
 Package: freeradius-krb5
 Architecture: any
 Depends: freeradius (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, ${dist:Depends}
