@@ -7,7 +7,7 @@ import "C"
 
 import (
 	//"fmt"
-	"unsafe"
+	//"unsafe"
 	"plugin"
 	"sync"
 
