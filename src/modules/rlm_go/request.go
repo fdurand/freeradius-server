@@ -16,7 +16,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/dereulenspiegel/freeradius-go"
+	"github.com/fdurand/freeradius-go"
 )
 
 type packet struct {

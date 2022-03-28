@@ -11,7 +11,7 @@ import (
 	"plugin"
 	"sync"
 
-	"github.com/dereulenspiegel/freeradius-go"
+	"github.com/fdurand/freeradius-go"
 )
 
 const (

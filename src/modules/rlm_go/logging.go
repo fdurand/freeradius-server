@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/dereulenspiegel/freeradius-go"
+	"github.com/fdurand/freeradius-go"
 )
 
 type radlogger struct{}
