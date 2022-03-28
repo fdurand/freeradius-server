@@ -49,7 +49,7 @@ extern module_t rlm_go;
 module_t rlm_go = {
   .magic = RLM_MODULE_INIT,
   .name = "go",
-  .type = RLM_TYPE_THREAD_UNSAFE,
+  .type = RLM_TYPE_THREAD_SAFE,
   .inst_size = sizeof(rlm_go_t),
   .config = module_config,
   .instantiate = mod_instantiate,
