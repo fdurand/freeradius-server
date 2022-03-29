@@ -7,12 +7,12 @@ typedef struct rlm_go_cache_eap_t {
 } rlm_go_cache_eap_t;
 
 static const CONF_PARSER module_config[] = {
-         {"redis_server", FR_CONF_OFFSET( PW_TYPE_STRING, rlm_go_cache_eap_t, plugin), "127.0.0.1" },
+         {"redis_server", FR_CONF_OFFSET( PW_TYPE_STRING, rlm_go_cache_eap_t, redis_server), "127.0.0.1" },
          { NULL, -1, 0, NULL, NULL }
  };
 
-extern int go_instantiate(CONF_SECTION *conf, char const *plugin);
-extern int go_authorize(char const *pluginPath, REQUEST *request);
+extern int go_instantiate(CONF_SECTION *conf, char const *redis_server);
+extern int go_authorize(char const *redisServer, REQUEST *request);
 
 static int mod_instantiate(CONF_SECTION *conf, void *instance) {
   rlm_go_cache_eap_t *inst = instance;
