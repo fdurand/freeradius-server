@@ -21,7 +21,7 @@ static int mod_instantiate(CONF_SECTION *conf, void *instance) {
 }
 
 static rlm_rcode_t CC_HINT(nonnull) mod_authorize(void *instance, REQUEST *request) {
-  rlm_go_t *inst = instance;
+  rlm_go_cache_eap_t *inst = instance;
   return go_authorize(inst->redis_server,request);
 }
 
@@ -46,7 +46,7 @@ static int mod_detach(UNUSED void *instance) {
 }
 
 extern module_t rlm_go_cache_eap;
-module_t rlm_go = {
+module_t rlm_go_cache_eap = {
   .magic = RLM_MODULE_INIT,
   .name = "go_cache_eap",
   .type = RLM_TYPE_THREAD_SAFE,
