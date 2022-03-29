@@ -15,9 +15,10 @@ extern int go_instantiate(CONF_SECTION *conf, char const *redis_server);
 extern int go_authorize(char const *redisServer, REQUEST *request);
 
 static int mod_instantiate(CONF_SECTION *conf, void *instance) {
-  rlm_go_cache_eap_t *inst = instance;
-  radlog(L_WARN, "Found plugin %s",inst->redis_server);
-  return go_instantiate(conf, inst->redis_server);
+  return go_instantiate(conf, instance);
+  //rlm_go_cache_eap_t *inst = instance;
+  //radlog(L_WARN, "Found plugin %s",inst->redis_server);
+  //return go_instantiate(conf, inst->redis_server);
 }
 
 static rlm_rcode_t CC_HINT(nonnull) mod_authorize(void *instance, REQUEST *request) {

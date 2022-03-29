@@ -41,10 +41,16 @@ func getInstanceC(cs *C.char) freeradius.Module {
 	return getInstance(path)
 }
 
+func go_instantiate(cconf *C.CONF_SECTION, instance unsafe.Pointer) C.int {
+	fmt.Println("go_instantiate called!")
+	instance = unsafe.Pointer(&C.struct_rlm_cloud_t{})
+	return 0
+}
+
 //export go_instantiate
-func go_instantiate(cconf *C.CONF_SECTION, pl *C.char) C.int {
-	redisServer := C.GoString(pl)
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "using redis server %s", redisServer)
+//func go_instantiate(cconf *C.CONF_SECTION, pl *C.char) C.int {
+//	redisServer := C.GoString(pl)
+//	radlogInstance.Radlog(freeradius.LogTypeInfo, "using redis server %s", redisServer)
 	//gomodule, err := plugin.Open(pluginPath)
 	//if err != nil || gomodule == nil {
 	//	radlogInstance.Radlog(freeradius.LogTypeError, "Failed to load plugin %s: %#v", pluginPath, err)
@@ -58,21 +64,21 @@ func go_instantiate(cconf *C.CONF_SECTION, pl *C.char) C.int {
 	//	return -1
 	//}
 
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "Calling CreateModule")
-	instance := createModule.(freeradius.ModuleFunc)()
-	if instance == nil {
-		radlogInstance.Radlog(freeradius.LogTypeError, "Created go module instance is nil")
-		return -1
-	}
+//	radlogInstance.Radlog(freeradius.LogTypeInfo, "Calling CreateModule")
+//	instance := createModule.(freeradius.ModuleFunc)()
+//	if instance == nil {
+//		radlogInstance.Radlog(freeradius.LogTypeError, "Created go module instance is nil")
+//		return -1
+//	}
 
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "Initiating go plugin")
-	if err := instance.Init(radlogInstance); err != nil {
-		radlogInstance.Radlog(freeradius.LogTypeError, "Unable to initialize go module %s: %#v", redisServer, err)
-	}
+//	radlogInstance.Radlog(freeradius.LogTypeInfo, "Initiating go plugin")
+//	if err := instance.Init(radlogInstance); err != nil {
+//		radlogInstance.Radlog(freeradius.LogTypeError, "Unable to initialize go module %s: %#v", redisServer, err)
+//	}
 
-	insertInstance(redisServer, instance)
-	return 0
-}
+//	insertInstance(redisServer, instance)
+//	return 0
+//}
 
 //export go_authorize
 func go_authorize(instancePath *C.char, request *C.REQUEST) C.int {
