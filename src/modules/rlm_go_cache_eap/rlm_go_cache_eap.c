@@ -3,7 +3,7 @@
 #include <freeradius-devel/rad_assert.h>
 
 typedef struct rlm_go_cache_eap_t {
-       char const      *plugin;
+       char const      *redis_server;
 } rlm_go_cache_eap_t;
 
 static const CONF_PARSER module_config[] = {
@@ -50,7 +50,7 @@ module_t rlm_go = {
   .magic = RLM_MODULE_INIT,
   .name = "go_cache_eap",
   .type = RLM_TYPE_THREAD_SAFE,
-  .inst_size = sizeof(rlm_go_t),
+  .inst_size = sizeof(rlm_go_cache_eap_t),
   .config = module_config,
   .instantiate = mod_instantiate,
   .detach = mod_detach,

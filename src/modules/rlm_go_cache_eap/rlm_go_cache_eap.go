@@ -8,7 +8,7 @@ import "C"
 import (
 	//"fmt"
 	//"unsafe"
-	"plugin"
+	//"plugin"
 	"sync"
 
 	"github.com/fdurand/freeradius-go"
