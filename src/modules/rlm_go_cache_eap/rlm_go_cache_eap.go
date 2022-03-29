@@ -6,8 +6,8 @@ package main
 import "C"
 
 import (
-	//"fmt"
-	//"unsafe"
+	"fmt"
+	"unsafe"
 	//"plugin"
 	"sync"
 
