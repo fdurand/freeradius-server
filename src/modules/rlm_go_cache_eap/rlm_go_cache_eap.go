@@ -43,7 +43,7 @@ func getInstanceC(cs *C.char) freeradius.Module {
 
 func go_instantiate(cconf *C.CONF_SECTION, instance unsafe.Pointer) C.int {
 	fmt.Println("go_instantiate called!")
-	instance = unsafe.Pointer(&C.struct_rlm_cloud_t{})
+	instance = unsafe.Pointer(&C.struct_rlm_go_cache_eap_t{})
 	return 0
 }
 
