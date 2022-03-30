@@ -4,8 +4,8 @@ EMPTY :=
 SPACE := $(EMPTY) $(EMPTY)
 
 MODULE  = rlm_go_cache_eap
-BASE_DIR = ${top_srcdir}/src/modules/$(MODULE)
-PACKAGE_GOPATH = $(BASE_DIR)/.gopath
+BASE_DIR_RLM_GO_CACHE_EAP = ${top_srcdir}/src/modules/$(MODULE)
+PACKAGE_GOPATH = $(BASE_DIR_RLM_GO_CACHE_EAP)/.gopath
 GOPATH   += $(PACKAGE_GOPATH)
 LOCAL_GOPATH = $(subst $(SPACE),:,$(GOPATH))
 BASE     = $(PACKAGE_GOPATH)/src/$(MODULE)
@@ -45,7 +45,7 @@ go_build_dynamic_rlm_go_cache_eap: $(BASE)
 
 $(BASE):
 	@mkdir -p $(dir $@)
-	@ln -sf $(BASE_DIR) $@
+	@ln -sf $(BASE_DIR_RLM_GO_CACHE_EAP) $@
 
 build/lib/local/rlm_go_cache_eap.la: go_build_static_rlm_go_cache_eap
 
