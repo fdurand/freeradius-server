@@ -41,6 +41,7 @@ func getInstanceC(cs *C.char) freeradius.Module {
 	return getInstance(path)
 }
 
+//export go_instantiate
 func go_instantiate(cconf *C.CONF_SECTION, instance unsafe.Pointer) C.int {
 	fmt.Println("go_instantiate called!")
 	instance = unsafe.Pointer(&C.struct_rlm_go_cache_eap_t{})
