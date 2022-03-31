@@ -3,6 +3,10 @@ package main
 // #include <freeradius-devel/radiusd.h>
 // #include <freeradius-devel/modules.h>
 // #include <freeradius-devel/rad_assert.h>
+/*
+extern int add(void);
+#cgo LDFLAGS: -Wl,--unresolved-symbols=ignore-all
+*/
 import "C"
 
 import (
