@@ -8,14 +8,11 @@ import "C"
 import (
 	//"fmt"
 	//"unsafe"
-	"plugin"
+
 	"sync"
 
 	"github.com/fdurand/freeradius-go"
-)
-
-const (
-	createModuleSymbol = "CreateModule"
+	"github.com/fdurand/freeradius-go-modules"
 )
 
 var (
@@ -43,32 +40,7 @@ func getInstanceC(cs *C.char) freeradius.Module {
 //export go_instantiate
 func go_instantiate(cconf *C.CONF_SECTION, pl *C.char) C.int {
 	pluginPath := C.GoString(pl)
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "using pluginpath %s", pluginPath)
-	gomodule, err := plugin.Open(pluginPath)
-	if err != nil || gomodule == nil {
-		radlogInstance.Radlog(freeradius.LogTypeError, "Failed to load plugin %s: %#v", pluginPath, err)
-		return -1
-	}
-
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "Looking up plugin symbol CreateModule")
-	createModule, err := gomodule.Lookup(createModuleSymbol)
-	if err != nil {
-		radlogInstance.Radlog(freeradius.LogTypeError, "Unable to lookup symbol %s: %#v", createModuleSymbol, err)
-		return -1
-	}
-
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "Calling CreateModule")
-	instance := createModule.(freeradius.ModuleFunc)()
-	if instance == nil {
-		radlogInstance.Radlog(freeradius.LogTypeError, "Created go module instance is nil")
-		return -1
-	}
-
-	radlogInstance.Radlog(freeradius.LogTypeInfo, "Initiating go plugin")
-	if err := instance.Init(radlogInstance); err != nil {
-		radlogInstance.Radlog(freeradius.LogTypeError, "Unable to initialize go module %s: %#v", pluginPath, err)
-	}
-
+	instance, _ := modules.Create(pluginPath, "bob")
 	insertInstance(pluginPath, instance)
 	return 0
 }
