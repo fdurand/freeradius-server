@@ -12,7 +12,7 @@ import (
 	"sync"
 
 	"github.com/fdurand/freeradius-go"
-	"github.com/fdurand/freeradius-go-modules"
+	modules "github.com/fdurand/freeradius-go-modules"
 )
 
 var (
@@ -39,9 +39,13 @@ func getInstanceC(cs *C.char) freeradius.Module {
 
 //export go_instantiate
 func go_instantiate(cconf *C.CONF_SECTION, pl *C.char) C.int {
-	pluginPath := C.GoString(pl)
-	instance, _ := modules.Create(pluginPath, "bob")
-	insertInstance(pluginPath, instance)
+	plugin := C.GoString(pl)
+	instance, _ := modules.Create(plugin, "bob")
+	radlogInstance.Radlog(freeradius.LogTypeInfo, "Initiating go plugin")
+	if err := instance.Init(radlogInstance); err != nil {
+		radlogInstance.Radlog(freeradius.LogTypeError, "Unable to initialize go module %s: %#v", plugin, err)
+	}
+	insertInstance(plugin, instance)
 	return 0
 }
 
