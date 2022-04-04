@@ -8,3 +8,5 @@ github.com/fdurand/freeradius-go-modules v0.0.0-20220403014721-0e00ce0ad7c4 h1:E
 github.com/fdurand/freeradius-go-modules v0.0.0-20220403014721-0e00ce0ad7c4/go.mod h1:lgTEZqPlCWURf95cMxUCNvDCtfPSEKqiUtWRwRS83e8=
 github.com/fdurand/freeradius-go-modules v0.0.0-20220404155437-bb5e3caba367 h1:k72SudRLyF0hGocMgAJ7uzXE1Z/v+VWm5WmkhZwpNVk=
 github.com/fdurand/freeradius-go-modules v0.0.0-20220404155437-bb5e3caba367/go.mod h1:i364ohgtbu/F81kI3KnZuVj47nDaCIEkoB/SrDUAM8o=
+github.com/fdurand/freeradius-go-modules v0.0.0-20220404164902-85a7c19f9eac h1:/hsfiGYaAlSNjWLI1z8btUXPqq27cqPPUjyHyoJaYs4=
+github.com/fdurand/freeradius-go-modules v0.0.0-20220404164902-85a7c19f9eac/go.mod h1:i364ohgtbu/F81kI3KnZuVj47nDaCIEkoB/SrDUAM8o=
