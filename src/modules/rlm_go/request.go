@@ -78,8 +78,8 @@ func (r *request) AddValuePair(attribute, value string) {
 }
 
 func (r *request) Packet() freeradius.Packet {
-	//return &packet{r.radRequest.packet}
-	return nil
+	return &packet{r.radRequest.packet}
+	// return nil
 }
 
 type reply struct {
