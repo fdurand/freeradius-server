@@ -382,6 +382,7 @@ export LDFLAGS="-Wl,--build-id"
         --with-winbind-include-dir=/usr/include/samba-4.0 \
         --with-winbind-lib-dir=/usr/lib64/samba \
         --with-systemd \
+        --with-modules="rlm_raw" \
         %{?_with_rlm_yubikey} \
         %{?_without_rlm_yubikey} \
         %{?_with_rlm_sql_oracle} \
