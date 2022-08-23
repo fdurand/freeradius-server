@@ -48,6 +48,11 @@ Source100: freeradius-radiusd-init
 Source102: freeradius-logrotate
 Source103: freeradius-pam-conf
 
+Patch1: collectd.patch
+Patch2: rlm_raw.patch
+Patch3: rlm_cache_authenticate.diff
+Patch4: fix.dictionary.patch
+
 Obsoletes: freeradius-devel
 Obsoletes: freeradius-libs
 
@@ -337,6 +342,10 @@ This plugin provides YubiCloud support for the FreeRADIUS server project.
 
 %prep
 %setup -q -n freeradius-server-%{version}
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 # Some source files mistakenly have execute permissions set
 find $RPM_BUILD_DIR/freeradius-server-%{version} \( -name '*.c' -o -name '*.h' \) -a -perm /0111 -exec chmod a-x {} +
 
