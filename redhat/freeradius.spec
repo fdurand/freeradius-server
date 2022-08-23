@@ -646,6 +646,7 @@ fi
 %{_libdir}/freeradius/rlm_passwd.so
 %{_libdir}/freeradius/rlm_preprocess.so
 %{_libdir}/freeradius/rlm_radutmp.so
+%{_libdir}/freeradius/rlm_raw.so
 %{_libdir}/freeradius/rlm_realm.so
 %{_libdir}/freeradius/rlm_replicate.so
 %{_libdir}/freeradius/rlm_soh.so
