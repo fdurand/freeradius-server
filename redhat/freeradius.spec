@@ -48,10 +48,10 @@ Source100: freeradius-radiusd-init
 Source102: freeradius-logrotate
 Source103: freeradius-pam-conf
 
-Patch1: collectd.patch
-Patch2: rlm_raw.patch
+Patch1: collectd.diff
+Patch2: rlm_raw.diff
 Patch3: rlm_cache_authenticate.diff
-Patch4: fix.dictionary.patch
+Patch4: fix.dictionary.diff
 
 Obsoletes: freeradius-devel
 Obsoletes: freeradius-libs
