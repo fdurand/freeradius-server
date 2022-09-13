@@ -30,7 +30,7 @@
 
 Summary: High-performance and highly configurable free RADIUS server
 Name: freeradius
-Version: 3.2.1
+Version: 3.2.2
 Release: 1%{?dist}
 License: GPLv2+ and LGPLv2+
 Group: System Environment/Daemons
@@ -77,6 +77,7 @@ BuildRequires: readline-devel
 BuildRequires: libpcap-devel
 BuildRequires: libtalloc-devel
 BuildRequires: libcurl-devel
+BuildRequires: libcollectdclient-devel
 
 Requires(pre): shadow-utils glibc-common
 Requires(post): /sbin/chkconfig
